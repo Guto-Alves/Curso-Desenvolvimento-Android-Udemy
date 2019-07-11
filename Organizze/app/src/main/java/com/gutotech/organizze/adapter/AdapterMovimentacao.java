@@ -17,7 +17,6 @@ import java.util.List;
  */
 
 public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentacao.MyViewHolder> {
-
     List<Movimentacao> movimentacoes;
     Context context;
 
@@ -32,16 +31,17 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
         return new MyViewHolder(itemLista);
     }
 
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Movimentacao movimentacao = movimentacoes.get(position);
 
-        holder.titulo.setText(movimentacao.getDescricao());
+
+        holder.valor.setTextColor(context.getResources().getColor(R.color.colorAccentReceita));
         holder.valor.setText(String.valueOf(movimentacao.getValor()));
+        holder.titulo.setText(movimentacao.getDescricao());
         holder.categoria.setText(movimentacao.getCategoria());
 
-        if (movimentacao.getTipo() == "d" || movimentacao.getTipo().equals("d")) {
+        if (movimentacao.getTipo().equals("d")) {
             holder.valor.setTextColor(context.getResources().getColor(R.color.colorAccent));
             holder.valor.setText("-" + movimentacao.getValor());
         }
