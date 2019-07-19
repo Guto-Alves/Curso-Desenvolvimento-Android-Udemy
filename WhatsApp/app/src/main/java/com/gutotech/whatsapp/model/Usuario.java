@@ -5,10 +5,11 @@ import com.google.firebase.database.Exclude;
 import com.gutotech.whatsapp.config.ConfigFirebase;
 import com.gutotech.whatsapp.helper.UsuarioFirebase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String id;
     private String nome;
     private String email;
@@ -54,7 +55,6 @@ public class Usuario {
         usuarioMap.put("email", getEmail());
         usuarioMap.put("nome", getNome());
         usuarioMap.put("foto", getFoto());
-
 
         return usuarioMap;
     }
