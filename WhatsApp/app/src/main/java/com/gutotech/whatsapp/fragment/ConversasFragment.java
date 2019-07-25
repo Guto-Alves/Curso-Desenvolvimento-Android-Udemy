@@ -23,11 +23,11 @@ public class ConversasFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_conversas, container, false);
 
         //recyclerConversas = view.findViewById(R.id.)
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        /*RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerConversas.setLayoutManager(layoutManager);
         recyclerConversas.setHasFixedSize(true);
         //recyclerConversas.setAdapter();
-
+*/
         return view;
     }
 }

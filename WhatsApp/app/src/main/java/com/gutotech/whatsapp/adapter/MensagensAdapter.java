@@ -56,24 +56,11 @@ public class MensagensAdapter extends RecyclerView.Adapter<MensagensAdapter.MyVi
             myViewHolder.mensagem.setText(msg);
             myViewHolder.imagem.setVisibility(View.GONE);
         }
-
     }
 
     @Override
     public int getItemCount() {
         return list.size();
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView mensagem;
-        private ImageView imagem;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            mensagem = itemView.findViewById(R.id.textMensagemTexto);
-            imagem = itemView.findViewById(R.id.imageMensagemFoto);
-        }
     }
 
     @Override
@@ -87,4 +74,18 @@ public class MensagensAdapter extends RecyclerView.Adapter<MensagensAdapter.MyVi
 
         return TIPO_DESTINATARIO;
     }
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView mensagem;
+        private ImageView imagem;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            mensagem = itemView.findViewById(R.id.textMensagemTexto);
+            imagem = itemView.findViewById(R.id.imageMensagemFoto);
+        }
+    }
+
 }

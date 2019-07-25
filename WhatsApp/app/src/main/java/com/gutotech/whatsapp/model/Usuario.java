@@ -56,6 +56,7 @@ public class Usuario implements Serializable {
         usuarioMap.put("nome", getNome());
         usuarioMap.put("foto", getFoto());
 
+
         return usuarioMap;
     }
 
