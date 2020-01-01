@@ -61,15 +61,15 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item video = videosList.get(position);
 
-        holder.position = position;
         Picasso.get().load(video.snippet.thumbnails.high.url).into(holder.imageView);
 
         holder.titleTextView.setText(video.snippet.title);
+
+        holder.position = position;
     }
 
     @Override
     public int getItemCount() {
         return videosList.size();
     }
-
 }

@@ -20,9 +20,6 @@ import com.gutotech.youtube.model.Item;
 import com.gutotech.youtube.model.Result;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,10 +28,9 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
     private MaterialSearchView searchView;
 
-    private VideosAdapter videosAdapter;
-
     private Result result;
-    private List<Item> items = new ArrayList<>();
+
+    private RecyclerView videosRecyclerView;
 
     private Retrofit retrofit;
 
@@ -45,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Youtube");
         setSupportActionBar(toolbar);
-
-        retrofit = RetrofitConfig.getRetrofit();
 
         searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -72,13 +66,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView videosRecyclerView = findViewById(R.id.videosRecyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        videosRecyclerView.setLayoutManager(layoutManager);
+        videosRecyclerView = findViewById(R.id.videosRecyclerView);
+        videosRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         videosRecyclerView.setHasFixedSize(true);
-        videosAdapter = new VideosAdapter(items, videoClickListener);
-        videosRecyclerView.setAdapter(videosAdapter);
-        getVideos("");
+
+        retrofit = RetrofitConfig.getRetrofit();
     }
 
     @Override
@@ -101,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Result> call, Response<Result> response) {
                 if (response.isSuccessful()) {
                     result = response.body();
-                    items = result.items;
-                    videosAdapter.notifyDataSetChanged();
+                    setRecyclerView();
                 }
             }
 
@@ -112,14 +103,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setRecyclerView() {
+        VideosAdapter videosAdapter = new VideosAdapter(result.items, videoClickListener);
+        videosRecyclerView.setAdapter(videosAdapter);
+    }
+
     private final VideosAdapter.VideoClickListener videoClickListener = new VideosAdapter.VideoClickListener() {
         @Override
         public void onClick(View view, int position) {
-            Item video = items.get(position);
+            Item video = result.items.get(position);
 
             Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
             intent.putExtra("videoId", video.id.videoId);
             startActivity(intent);
         }
     };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getVideos("");
+    }
 }

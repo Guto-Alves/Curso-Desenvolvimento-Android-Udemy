@@ -20,6 +20,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtubePlayerView);
 
         Bundle bundle = getIntent().getExtras();
+
         if (bundle != null) {
             videoId = bundle.getString("videoId");
             youTubePlayerView.initialize(YoutubeConfig.API_KEY, this);
