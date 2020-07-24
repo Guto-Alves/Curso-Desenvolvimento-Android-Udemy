@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/winnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="playAgain"
+            android:text="Play Again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/winnerTextView" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="330dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playAgainButton">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="0" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="1" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="2" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="3" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="4" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="5" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="6" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="7" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/cellborder"
+                    android:onClick="dropIn"
+                    android:padding="8dp"
+                    android:tag="8" />
+            </TableRow>
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
